@@ -1,0 +1,49 @@
+
+:root {
+	--bg: #0b1220;
+	--surface: #0f172a;
+	--muted: #94a3b8;
+	--text: #e6eef8;
+	--accent: #f7c948;
+	--code-bg: #071023;
+}
+
+/* sensible global reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.5;
+}
+
+/* Links */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Images scale nicely */
+img { max-width: 100%; height: auto; display: block; }
+
+/* Code / pre styling */
+pre { background: var(--code-bg); color: var(--text); padding: 1rem; border-radius: 8px; overflow: auto; }
+code { background: rgba(255,255,255,0.02); padding: 0.05rem 0.35rem; border-radius: 4px; font-family: 'Courier New', monospace; }
+
+/* Utility muted text */
+.muted { color: var(--muted); }
+
+/* Make forms and buttons look consistent */
+button, input, textarea, select { font-family: inherit; }
