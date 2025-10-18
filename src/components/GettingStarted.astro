@@ -1,0 +1,99 @@
+---
+import Content from "../content/getting-started.md";
+
+---
+
+<section class="getting-started prose mx-auto p-6">
+	<Content />
+</section>
+
+<style>
+
+	body {
+		background-color: #1e293b;
+	}
+
+	.getting-started {
+		max-width: 900px;
+		margin: 2rem auto;
+		color: #e6eef8;
+		background-color: rgba(2,6,23,0.7);
+		border: 1px solid rgba(255,255,255,0.03);
+		border-radius: 12px;
+		padding: 2rem;
+		box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+		font-family: Inter, 'Courier New', Courier, monospace;
+	}
+
+	/* Typography */
+	.getting-started h1,
+	.getting-started h2,
+	.getting-started h3 {
+		color: #f8fafc;
+		font-family: 'Courier New', Courier, monospace;
+		margin-top: 1.25rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.getting-started p {
+		line-height: 1.7;
+		color: #cbd5e1;
+		margin-bottom: 1rem;
+	}
+
+	/* Links/accent */
+	.getting-started a {
+		color: #f7c948; /* site CTA / accent */
+		text-decoration: underline;
+	}
+
+	/* Inline code */
+	.getting-started code {
+		background: rgba(247,201,72,0.08);
+		color: #0b1220;
+		padding: 0.12rem 0.35rem;
+		border-radius: 6px;
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;
+		font-size: 0.95em;
+	}
+
+	/* Code blocks */
+	.getting-started pre {
+		background: #071027;
+		color: #e6eef8;
+		padding: 1rem;
+		border-radius: 8px;
+		overflow: auto;
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;
+		font-size: 0.95rem;
+		border: 1px solid rgba(255,255,255,0.02);
+	}
+
+	/* Lists and blockquotes */
+	.getting-started ul,
+	.getting-started ol {
+		margin-left: 1.25rem;
+		margin-bottom: 1rem;
+		color: #cbd5e1;
+	}
+
+	.getting-started blockquote {
+		border-left: 4px solid rgba(247,201,72,0.12);
+		padding-left: 1rem;
+		color: #e6eef8;
+		background: rgba(255,255,255,0.02);
+		margin: 1rem 0;
+		border-radius: 6px;
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 720px) {
+		.getting-started {
+			padding: 1rem;
+			margin: 1rem;
+		}
+		.getting-started h1 {
+			font-size: 1.6rem;
+		}
+	}
+</style>
