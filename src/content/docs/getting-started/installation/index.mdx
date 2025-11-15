@@ -1,0 +1,59 @@
+---
+title: Installation
+description: Quick start guide to clone, build Mach
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+
+Welcome — this page helps you get the Mach bootstrap toolchain built and the example CLI running. The instructions assume a Unix-like environment (Linux/macOS) and a POSIX toolchain.
+
+### Prerequisites
+
+Before building **Mach**, make sure you have the following installed:
+
+- **LLVM ≥ 19**
+- **A C compiler** that supports the **C23** standard
+- **Make** or an equivalent build tool
+
+---
+
+#### Verification
+
+Before building Mach, ensure that:
+
+- `llvm-config` is accessible in your `PATH`.
+- LLVM’s development headers are properly installed.
+
+### Getting Source
+
+To get started, clone the Mach repository from its source:
+
+```bash
+git clone https://github.com/octalide/mach.git
+```
+
+
+### Environment Variables
+
+The compiler and other Mach projects depend on the `MACH_HOME` environment variable.  
+Before creating or launching any tools, set this variable to the root directory of your Mach repository:
+
+```bash 
+export MACH_HOME="path/to/mach"
+```
+
+---
+
+### Building the compiler
+
+```bash
+cd mach
+make  cmach # produces a binary in out/bin/
+```
+<Aside> The build process expects **Clang** and **LLD** to be available in your `PATH`.  If you’re using a custom toolchain, set the `CC` and `CXX` environment variables, or update the `Makefile` accordingly.</Aside>
+
+### Next steps
+- Run `./out/bin/mach help` to list available commands.
+- Modify `src/commands.mach` in the `mach` repo to add CLI subcommands.
+- Track progress toward the self-hosted compiler in this repository — the goal is to replace the C bootstrap with a Mach-built compiler over time.

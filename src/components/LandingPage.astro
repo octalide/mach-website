@@ -1,10 +1,10 @@
 ---
-const exampleCode = `use          std.runtime;
-use          std.types.string;
+const exampleCode = `use std.runtime;
+use std.types.string;
 use console: std.io.console;
 
-#@symbol("main")
-fun main(args: []string): i64 {
+$main.symbol = "main";
+fun main(args: []str) i64 {
     console.print("Hello, World!");
     ret 0;
 }
@@ -13,10 +13,8 @@ fun main(args: []string): i64 {
 
 <main>
     <h1 class="logo-text">Mach</h1>
-    <p class="description">
-        programming language designed to be simple, fast, and easy to use.
-    </p>
-    <a class="cta" href="/getting-started">Get Started</a>
+    <p class="description">programming language designed to be simple, fast, and easy to use.</p>
+    <a class="cta" href="/getting-started/installation">Get Started</a>
 
     <div class="code-sample">
         <div class="mac-window">
@@ -25,49 +23,60 @@ fun main(args: []string): i64 {
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
             </div>
-                        <pre><code class="language-rust">{exampleCode}</code></pre>
+            <pre><code class="language-rust">{exampleCode}</code></pre>
         </div>
     </div>
 
-<!-- Prism.js for syntax highlighting (client-side) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.css" />
-<!-- Prism bundle (includes languages) -->
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-<!-- Rust component is loaded dynamically below to avoid race conditions -->
-                <!-- load the Rust language component only after Prism core is available to avoid race conditions -->
-                <script>
-                    (function loadPrismRust(){
-                        if (typeof window === 'undefined') return;
-                            const loadScript = (src: string) => new Promise<void>((resolve, reject) => {
-                                const s = document.createElement('script');
-                                s.src = src;
-                                s.onload = () => resolve();
-                                s.onerror = (e) => reject(e);
-                                document.head.appendChild(s);
-                            });
+    <!-- Prism.js for syntax highlighting (client-side) -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.css"
+    />
+    <!-- Prism bundle (includes languages) -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <!-- Rust component is loaded dynamically below to avoid race conditions -->
+    <!-- load the Rust language component only after Prism core is available to avoid race conditions -->
+    <script>
+        (function loadPrismRust() {
+            if (typeof window === "undefined") return;
+            const loadScript = (src: string) =>
+                new Promise<void>((resolve, reject) => {
+                    const s = document.createElement("script");
+                    s.src = src;
+                    s.onload = () => resolve();
+                    s.onerror = (e) => reject(e);
+                    document.head.appendChild(s);
+                });
 
-                            const waitForPrism = () => new Promise<void>((resolve) => {
-                                if ((globalThis as any).Prism) return resolve();
-                                const iv = setInterval(() => {
-                                    if ((globalThis as any).Prism) { clearInterval(iv); resolve(); }
-                                }, 50);
-                                setTimeout(() => clearInterval(iv), 5000);
-                            });
+            const waitForPrism = () =>
+                new Promise<void>((resolve) => {
+                    if ((globalThis as any).Prism) return resolve();
+                    const iv = setInterval(() => {
+                        if ((globalThis as any).Prism) {
+                            clearInterval(iv);
+                            resolve();
+                        }
+                    }, 50);
+                    setTimeout(() => clearInterval(iv), 5000);
+                });
 
-                        (async () => {
-                            try {
-                                await waitForPrism();
-                                await loadScript('https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js');
-                                const P = (globalThis as any).Prism;
-                                const codeEl = document.querySelector('.mac-window pre code');
-                                if (P && typeof P.highlightElement === 'function' && codeEl) P.highlightElement(codeEl);
-                            } catch (err) {
-                                // don't block the page on highlighting errors
-                                console.warn('Prism Rust load/highlight failed:', err);
-                            }
-                        })();
-                    })();
-                </script>
+            (async () => {
+                try {
+                    await waitForPrism();
+                    await loadScript(
+                        "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-rust.min.js",
+                    );
+                    const P = (globalThis as any).Prism;
+                    const codeEl = document.querySelector(".mac-window pre code");
+                    if (P && typeof P.highlightElement === "function" && codeEl)
+                        P.highlightElement(codeEl);
+                } catch (err) {
+                    // don't block the page on highlighting errors
+                    console.warn("Prism Rust load/highlight failed:", err);
+                }
+            })();
+        })();
+    </script>
     <section class="create">
         <h2 class="create-title">Create with Mach</h2>
         <div class="cards">
@@ -80,12 +89,13 @@ fun main(args: []string): i64 {
                 <p>create fast and reliable CLI tools</p>
             </div>
             <div class="card">
-                <h3>Embedded </h3>
-                <p>Build efficient and reliable software for resource-constrained embedded systems.</p>
+                <h3>Embedded</h3>
+                <p>
+                    Build efficient and reliable software for resource-constrained embedded systems.
+                </p>
             </div>
         </div>
     </section>
-    
 </main>
 
 <style>
@@ -101,26 +111,28 @@ fun main(args: []string): i64 {
         padding: 2rem;
         box-sizing: border-box;
     }
-    
+
     .logo-text {
         font-size: 5rem;
         color: white;
-        font-family: 'Courier New', Courier, monospace;
+        font-family: "Courier New", Courier, monospace;
         font-weight: bold;
     }
     .description {
         font-size: 1.9rem;
         color: white;
-        font-family: 'Courier New', Courier, monospace;
+        font-family: "Courier New", Courier, monospace;
         margin-top: 1rem;
         /* typing animation*/
-        
+
         white-space: nowrap;
         overflow: hidden; /* hide the overflowing characters while typing */
         border-right: 3px solid orange;
         display: inline-block;
         width: 0; /* start hidden so animation reveals text */
-        animation: typing 3s steps(66) 1s forwards, blink-caret 0.75s step-end infinite;
+        animation:
+            typing 3s steps(66) 1s forwards,
+            blink-caret 0.75s step-end infinite;
     }
 
     .cta {
@@ -132,13 +144,15 @@ fun main(args: []string): i64 {
         border: none;
         border-radius: 8px;
         cursor: pointer;
-        font-family: 'Courier New', Courier, monospace;
-        transition: transform 0.12s ease, box-shadow 0.12s ease;
+        font-family: "Courier New", Courier, monospace;
+        transition:
+            transform 0.12s ease,
+            box-shadow 0.12s ease;
     }
 
     .cta:hover {
         transform: translateY(-3px);
-        box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
 
     .create {
@@ -151,7 +165,7 @@ fun main(args: []string): i64 {
     .create-title {
         color: #cbd5e1;
         margin-bottom: 1rem;
-        font-family: 'Courier New', Courier, monospace;
+        font-family: "Courier New", Courier, monospace;
         font-size: 2rem;
     }
 
@@ -162,7 +176,6 @@ fun main(args: []string): i64 {
         align-items: stretch;
         flex-wrap: wrap;
     }
-
 
     .code-sample {
         margin-top: 2rem;
@@ -175,8 +188,8 @@ fun main(args: []string): i64 {
         background: linear-gradient(180deg, #071027, #021226);
         border-radius: 12px;
         padding: 0.6rem 0.6rem 1rem 0.6rem;
-        box-shadow: 0 10px 40px rgba(2,6,23,0.6);
-        border: 1px solid rgba(255,255,255,0.04);
+        box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.04);
         overflow: hidden;
     }
     .mac-controls {
@@ -189,18 +202,24 @@ fun main(args: []string): i64 {
         height: 12px;
         border-radius: 50%;
         display: inline-block;
-        box-shadow: inset 0 -1px 0 rgba(0,0,0,0.2);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.2);
     }
-    .mac-controls .dot.red { background: #ff5f56; }
-    .mac-controls .dot.yellow { background: #ffbd2e; }
-    .mac-controls .dot.green { background: #27c93f; }
-    .mac-window pre { 
+    .mac-controls .dot.red {
+        background: #ff5f56;
+    }
+    .mac-controls .dot.yellow {
+        background: #ffbd2e;
+    }
+    .mac-controls .dot.green {
+        background: #27c93f;
+    }
+    .mac-window pre {
         margin: 0 auto;
         padding: 1rem;
         border-radius: 8px;
         background: transparent;
         color: #e6eef8;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
         font-size: 0.95rem;
         overflow: auto;
         text-align: left; /* ensure code lines are left-aligned */
@@ -210,19 +229,19 @@ fun main(args: []string): i64 {
     }
 
     .card {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.04);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.04);
         padding: 1rem;
         border-radius: 8px;
         width: 220px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .card h3 {
         font-size: 1.5rem;
         margin: 0 0 0.5rem 0;
         color: #f8fafc;
-        font-family: 'Courier New', Courier, monospace;
+        font-family: "Courier New", Courier, monospace;
     }
 
     .card p {
@@ -233,14 +252,23 @@ fun main(args: []string): i64 {
 
     /* typing keyframes */
     @keyframes typing {
-        from { width: 0; }
-        to { width: 66ch; }
+        from {
+            width: 0;
+        }
+        to {
+            width: 66ch;
+        }
     }
 
     /* blinking caret */
     @keyframes blink-caret {
-        from, to { border-color: transparent; }
-        50% { border-color: orange; }
+        from,
+        to {
+            border-color: transparent;
+        }
+        50% {
+            border-color: orange;
+        }
     }
 
     /* Responsive adjustments */
@@ -305,7 +333,7 @@ fun main(args: []string): i64 {
             padding: 0 0.5rem;
         }
     }
-    
+
     /* Respect user preference for reduced motion */
     @media (prefers-reduced-motion: reduce) {
         .description {

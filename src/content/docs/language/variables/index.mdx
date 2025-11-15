@@ -1,0 +1,32 @@
+---
+title: Variables
+---
+
+A variable declaration has the following syntax: ```(val|var) identifier[: type] = value;```
+
+#### Constants: ```val```
+
+Syntax: ```val name: Type = expression;```
+
+val must have an initializer and cannot be reassigned.
+```c
+val max_items: u64 = 1024;
+val greeting: []u8 = []u8{ 'h', 'i' };
+greeting = []u8{ 'x' };   # error: cannot assign to val
+```
+
+
+#### Variables: ```var```
+Syntax: ```var name: Type;``` or ```var name: Type = expression;```
+```c
+# var may be declared without an initializer and can be reassigned.
+var count: u64;
+count = 1;
+
+var total: u64 = 0;
+total = total + count;
+
+# type annotations are required; there is no type inference in declarations
+var p: *u8;
+p = nil;
+```

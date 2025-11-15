@@ -1,0 +1,29 @@
+---
+title: Hello World
+---
+
+create a new mach project using `/path/to/mach init hello` command which bootstraps the project with the following contents inside ```main.mach```:
+
+```c
+use std.runtime;
+use std.types.string;
+use console: std.io.console;
+
+$main.symbol = "main";
+fun main(args: []str) i64 {
+    console.print("Hello, World!");
+    ret 0;
+}
+```
+
+to build the project, run the following command:
+
+```bash
+/path/to/mach build .
+```
+
+to run the project, run the following command:
+
+```bash
+/path/to/mach run
+```

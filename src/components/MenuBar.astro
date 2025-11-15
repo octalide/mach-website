@@ -1,45 +1,44 @@
 ---
-import logo from '../assets/mach.png';
+import logo from "../assets/mach.png";
 ---
 
 <div class="container mx-auto px-0">
-  <a class="logo" href="/">
-    <img src={logo.src} alt="Logo" width="40" height="40"/>
-  </a>
-  <a class="menu-item">Docs</a>
-  <a class="menu-item">Examples</a>
-  <a class="menu-item">Install</a>
-  <a class="menu-item" href="https://discord.gg/8NqbyfWNyb">Discord</a>
-  <a class="menu-item" href="https://github.com/octalide/mach">GitHub</a>
+    <a class="logo" href="/">
+        <img src={logo.src} alt="Logo" width="40" height="40" />
+    </a>
+    <a class="menu-item" href="/getting-started/installation">Docs</a>
+    <a class="menu-item">Examples</a>
+    <a class="menu-item">Install</a>
+    <a class="menu-item" href="https://discord.gg/8NqbyfWNyb">Discord</a>
+    <a class="menu-item" href="https://github.com/octalide/mach">GitHub</a>
 </div>
 
 <style>
-  .container {
-    width: 100%;
-    height: 60px;
-    background-color: #0f172a;
-    border-bottom: 2px solid #1e293b;
+    .container {
+        width: 100%;
+        height: 60px;
+        background-color: #0f172a;
+        border-bottom: 2px solid #1e293b;
 
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
 
-    display: flex;
-    justify-content: flex-end;  
-    align-items: center;      
-  }
-
-  .menu-item {
-    display: inline-block;
-    line-height: 60px;
-    margin: 0 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  .logo {
-    margin-left: 15px;
-    margin-right: auto;
-    text-decoration: none;
-    font-weight: 200;
-  }
+    .menu-item {
+        display: inline-block;
+        line-height: 60px;
+        margin: 0 20px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: "Courier New", Courier, monospace;
+    }
+    .logo {
+        margin-left: 15px;
+        margin-right: auto;
+        text-decoration: none;
+        font-weight: 200;
+    }
 </style>
